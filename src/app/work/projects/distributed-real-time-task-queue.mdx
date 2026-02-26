@@ -1,0 +1,36 @@
+---
+title: "Distributed Real-Time Task Queue"
+publishedAt: "2026-02-20"
+summary: "A Go + React distributed task queue with Kafka, Redis, RabbitMQ, gRPC, GraphQL subscriptions, and Kubernetes-ready scaling."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+  - "/images/projects/project-01/cover-03.jpg"
+team:
+  - name: "Sarthak Mallick"
+    role: "Software Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://linkedin.com/in/sarthak-mallick"
+link: "https://github.com/sarthak-mallick/Distributed-Task-Queue"
+---
+
+## Overview
+
+This project implements a distributed task execution platform for asynchronous job processing, real-time progress updates, and durable result storage.
+
+## System Design
+
+- Built core services in **Go** with a **React** frontend.
+- Used **Kafka** for event streaming, **Redis** for status caching, and **RabbitMQ** for request-reply patterns.
+- Connected workers over **gRPC** and streamed live status with **GraphQL + WebSocket** subscriptions.
+
+## Reliability & Performance
+
+- Implemented idempotent job delivery and robust retry/backoff handling.
+- Achieved **2500 jobs/minute** peak throughput.
+- Kept status lookup latency below **40ms p95** in AKS deployment tests.
+- Added graceful shutdown, reconnect handling, and observability fields (`job_id`, `trace_id`) across flows.
+
+## Deployment
+
+- Added Kubernetes deployment scaffolding.
+- Validated horizontal scaling to 8 workers in single-host Docker-based test environments.

@@ -2,48 +2,33 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "Sarthak",
+  lastName: "Mallick",
+  name: `Sarthak Mallick`,
+  role: "Software Engineer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "sarthakmallick444@gmail.com",
+  location: "America/New_York", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: [],
 };
 
 const newsletter: Newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  description: <>Notes on distributed systems, cloud engineering, and backend architecture.</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/sarthak-mallick",
     essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-    essential: true,
-  },
-  {
-    name: "Instagram",
-    icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
-    essential: false,
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://linkedin.com/in/sarthak-mallick",
     essential: true,
   },
   {
@@ -58,26 +43,27 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  title: `${person.name} | ${person.role}`,
+  description: `${person.name}'s portfolio focused on distributed systems, cloud infrastructure, and backend engineering.`,
+  headline: <>Building reliable distributed systems for enterprise scale</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong>Featured</strong>
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Distributed real-time task queue
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/distributed-real-time-task-queue",
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      I'm Sarthak, a software engineer based in Boston. I build cloud-native backend systems
+      focused on scalability, resilience, and operational visibility.
+    </>
   ),
 };
 
@@ -85,69 +71,100 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `${person.name} is a ${person.role} based in Boston, MA.`,
   tableOfContent: {
     display: true,
-    subItems: false,
+    subItems: true,
   },
   avatar: {
     display: true,
   },
   calendar: {
-    display: true,
-    link: "https://cal.com",
+    display: false,
+    link: "",
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        I am a software engineer with experience delivering enterprise supply-chain platforms and
+        building distributed cloud systems. I am currently pursuing an M.S. in Computer Software
+        Engineering at Northeastern University with focus on distributed systems, cloud computing,
+        and enterprise software design.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "SAP Labs",
+        timeframe: "Jan 2023 - Apr 2024",
+        role: "Software Engineer II",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Managed a 12-member team as technical co-lead within a 150-member cross-functional
+            organization and delivered multiple product versions.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Developed cloud-native multi-tenant microservices in Node.js with configurable business
+            logic, ACID transaction handling, and OData REST APIs serving 100K+ operations daily.
+          </>,
+          <>
+            Engineered event-driven architecture using AMQP and event mesh for 10K+ async events per
+            day with delivery guarantees and retry strategies.
+          </>,
+          <>
+            Conducted 15+ interviews and mentored new engineers on code reviews, architecture, and
+            Agile SDLC practices.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "SAP Labs",
+        timeframe: "Jan 2021 - Dec 2022",
+        role: "Software Engineer",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Architected 3NF normalized schema and domain model for orders, shipments, and materials
+            using CAP and CDS with referential integrity constraints.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Redesigned query patterns and batching strategy to reduce database calls by 80%.
+          </>,
+          <>
+            Built a backend change data capture framework with configurable event notifications for
+            create and update flows.
+          </>,
+          <>
+            Set up CI/CD pipelines with Jenkins and containerization, plus Elasticsearch and Kibana
+            tracing with correlation IDs.
+          </>,
+          <>
+            Conducted workshops for 40+ developers on SAP BTP and JDBC migration to cloud workflows.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "SAP Labs",
+        timeframe: "Jul 2020 - Dec 2020",
+        role: "Associate Software Engineer",
+        achievements: [
+          <>
+            Built full-stack transportation planning features with SAPUI5 frontend, Node.js backend,
+            and HANA DB integration.
+          </>,
+          <>
+            Implemented a unified data model to simplify data flow and improve consistency across
+            planning modules.
+          </>,
+          <>
+            Reduced authentication overhead by caching OAuth tokens in `node-cache`, eliminating 95%
+            of redundant JWT requests.
           </>,
         ],
         images: [],
@@ -155,78 +172,134 @@ const about: About = {
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Northeastern University",
+        description: (
+          <>
+            M.S. in Computer Software Engineering (Sep 2024 - Apr 2026). Focused on distributed
+            systems, cloud computing, and enterprise software design.
+          </>
+        ),
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Indian Institute of Technology Bombay",
+        description: <>B.Tech in Computer Science and Engineering (Jul 2016 - May 2020).</>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
+    display: true,
+    title: "Technical Skills",
     skills: [
       {
-        title: "Figma",
+        title: "Programming",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>
+            Java, Python, JavaScript, TypeScript, C/C++, SQL, NoSQL, Bash, and Go/Golang.
+          </>
         ),
         tags: [
           {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "Go",
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "TypeScript",
           },
-        ],
-      },
-      {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
-        tags: [
           {
             name: "JavaScript",
             icon: "javascript",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "Web & APIs",
+        description: (
+          <>Node.js, Spring Boot, React, GraphQL, WebSocket, gRPC, and AJAX.</>
+        ),
+        tags: [
+          {
+            name: "Node.js",
+          },
+          {
+            name: "React",
           },
           {
             name: "Next.js",
             icon: "nextjs",
           },
           {
-            name: "Supabase",
-            icon: "supabase",
+            name: "GraphQL",
           },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
+        images: [],
+      },
+      {
+        title: "Data & Messaging",
+        description: (
+          <>PostgreSQL, MongoDB, Redis, Kafka, RabbitMQ, MySQL, Oracle DB, and Elasticsearch.</>
+        ),
+        tags: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "Kafka",
+          },
+          {
+            name: "RabbitMQ",
+          },
+          {
+            name: "MongoDB",
+          },
+          {
+            name: "Redis",
           },
         ],
+        images: [],
+      },
+      {
+        title: "Cloud & DevOps",
+        description: (
+          <>
+            AWS, GCP, Azure, Docker, Kubernetes, Terraform, Packer, Jenkins, and GitHub Actions.
+          </>
+        ),
+        tags: [
+          {
+            name: "AWS",
+          },
+          {
+            name: "Docker",
+          },
+          {
+            name: "Kubernetes",
+          },
+          {
+            name: "Terraform",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "Tools & Platforms",
+        description: (
+          <>
+            Linux, UNIX, Git, Apache Spark, MATLAB, Android Studio, Flutter, Claude, and Codex.
+          </>
+        ),
+        tags: [
+          {
+            name: "Linux",
+          },
+          {
+            name: "Git",
+          },
+          {
+            name: "Apache Spark",
+          },
+        ],
+        images: [],
       },
     ],
   },
@@ -235,19 +308,15 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  title: "Writing about distributed systems and software engineering",
+  description: `Read notes and implementation deep-dives from ${person.name}`,
 };
 
 const work: Work = {
   path: "/work",
   label: "Work",
   title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  description: `Cloud and distributed systems projects by ${person.name}`,
 };
 
 const gallery: Gallery = {
