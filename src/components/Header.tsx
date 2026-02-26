@@ -86,10 +86,6 @@ export const Header = () => {
             zIndex={1}
           >
             <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
-              {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
-              )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/about"] && (
                 <>
                   <Row s={{ hide: true }}>
@@ -124,6 +120,25 @@ export const Header = () => {
                       prefixIcon="grid"
                       href="/work"
                       selected={pathname.startsWith("/work")}
+                    />
+                  </Row>
+                </>
+              )}
+              {routes["/skills"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="rocket"
+                      href="/skills"
+                      label="Skills"
+                      selected={pathname.startsWith("/skills")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="rocket"
+                      href="/skills"
+                      selected={pathname.startsWith("/skills")}
                     />
                   </Row>
                 </>

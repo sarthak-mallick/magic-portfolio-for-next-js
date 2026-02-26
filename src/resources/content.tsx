@@ -88,10 +88,9 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I am a software engineer with experience delivering enterprise supply-chain platforms and
-        building distributed cloud systems. I am currently pursuing an M.S. in Computer Software
-        Engineering at Northeastern University with focus on distributed systems, cloud computing,
-        and enterprise software design.
+        Software engineer with four years of experience designing and deploying cloud-native SaaS
+        microservices and distributed systems for enterprise clients. Led a team delivering
+        scalable multi-tenant applications and event-driven architectures.
       </>
     ),
   },
@@ -191,7 +190,7 @@ const about: About = {
     ],
   },
   technical: {
-    display: true,
+    display: false,
     title: "Technical Skills",
     skills: [
       {
