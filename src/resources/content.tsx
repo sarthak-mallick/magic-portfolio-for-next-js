@@ -120,6 +120,13 @@ const about: About = {
             Agile SDLC practices.
           </>,
         ],
+        technologies: [
+          { name: "Node.js", icon: "nodejs" },
+          { name: "Kafka", icon: "kafka" },
+          { name: "RabbitMQ", icon: "rabbitmq" },
+          { name: "AWS", icon: "aws" },
+          { name: "Jenkins", icon: "jenkins" },
+        ],
         images: [],
       },
       {
@@ -146,6 +153,12 @@ const about: About = {
             Conducted workshops for 40+ developers on SAP BTP and JDBC migration to cloud workflows.
           </>,
         ],
+        technologies: [
+          { name: "Node.js", icon: "nodejs" },
+          { name: "Docker", icon: "docker" },
+          { name: "Jenkins", icon: "jenkins" },
+          { name: "Elasticsearch", icon: "elasticsearch" },
+        ],
         images: [],
       },
       {
@@ -165,6 +178,11 @@ const about: About = {
             Reduced authentication overhead by caching OAuth tokens in `node-cache`, eliminating 95%
             of redundant JWT requests.
           </>,
+        ],
+        technologies: [
+          { name: "Node.js", icon: "nodejs" },
+          { name: "JavaScript", icon: "javascript" },
+          { name: "Git", icon: "git" },
         ],
         images: [],
       },

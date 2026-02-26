@@ -237,17 +237,19 @@ export default function About() {
 
           {about.intro.display && (
             <Column
-              className={styles.contentCard}
+              className={`${styles.contentCard} ${styles.introCard}`}
               textVariant="body-default-l"
               fillWidth
               gap="m"
-              marginBottom="xl"
+              marginBottom="m"
             >
-              {about.intro.description}
+              <div className={styles.introTextReveal}>
+                <div className={styles.introCopy}>{about.intro.description}</div>
+              </div>
             </Column>
           )}
           {(about.work.display || about.studies.display || about.technical.display) && (
-            <div className={styles.sectionDivider} aria-hidden="true" />
+            <div className={`${styles.sectionDivider} ${styles.sectionDividerIntro}`} aria-hidden="true" />
           )}
 
           {about.work.display && (
@@ -255,78 +257,81 @@ export default function About() {
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="l" marginBottom="40" className={styles.timelineTrack}>
                 {about.work.experiences.map((experience, index) => {
                   const companyLogo = getWorkLogo(experience.company);
                   return (
                     <Column
                       key={`${experience.company}-${experience.role}-${index}`}
                       fillWidth
-                      className={styles.contentCard}
+                      className={`${styles.contentCard} ${styles.timelineItem}`}
                     >
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Row gap="12" vertical="center">
-                        {companyLogo && (
-                          <span
-                            className={styles.organizationLogo}
-                            style={{
-                              width: `${companyLogo.width}px`,
-                              height: `${companyLogo.height}px`,
-                            }}
-                          >
-                            <Media
-                              src={companyLogo.src}
-                              alt={companyLogo.alt}
-                              sizes={`${companyLogo.width}px`}
-                              className={styles.logoImage}
-                            />
-                          </span>
-                        )}
-                        <Text id={experience.role} variant="heading-strong-l">
-                          {experience.role}
+                      <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
+                        <Row gap="12" vertical="center">
+                          {companyLogo && (
+                            <span
+                              className={styles.organizationLogo}
+                              style={{
+                                width: `${companyLogo.width}px`,
+                                height: `${companyLogo.height}px`,
+                              }}
+                            >
+                              <Media
+                                src={companyLogo.src}
+                                alt={companyLogo.alt}
+                                sizes={`${companyLogo.width}px`}
+                                className={styles.logoImage}
+                              />
+                            </span>
+                          )}
+                          <Text id={experience.role} variant="heading-strong-l">
+                            {experience.role}
+                          </Text>
+                        </Row>
+                        <Text variant="heading-default-xs" onBackground="neutral-weak">
+                          {experience.timeframe}
                         </Text>
                       </Row>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
-                        {experience.timeframe}
+                      <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                        {experience.company}
                       </Text>
-                    </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.company}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map(
-                        (achievement: React.ReactNode, index: number) => (
+                      <Text variant="label-strong-s" onBackground="neutral-weak" marginBottom="8">
+                        Key Wins
+                      </Text>
+                      <Column as="ul" gap="16">
+                        {experience.achievements.map(
+                          (achievement: React.ReactNode, achievementIndex: number) => (
                           <Text
                             as="li"
                             variant="body-default-m"
-                            key={`${experience.company}-${index}`}
+                            key={`${experience.company}-${achievementIndex}`}
                           >
                             {achievement}
                           </Text>
-                        ),
-                      )}
-                    </Column>
-                    {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                        {experience.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
+                          ),
+                        )}
+                      </Column>
+                      {experience.images && experience.images.length > 0 && (
+                        <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
+                          {experience.images.map((image, imageIndex) => (
+                            <Row
+                              key={imageIndex}
+                              border="neutral-medium"
                               radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
+                              minWidth={image.width}
+                              height={image.height}
+                            >
+                              <Media
+                                enlarge
+                                radius="m"
+                                sizes={image.width.toString()}
+                                alt={image.alt}
+                                src={image.src}
+                              />
+                            </Row>
+                          ))}
+                        </Row>
+                      )}
                     </Column>
                   );
                 })}
@@ -342,7 +347,7 @@ export default function About() {
               <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
                 {about.studies.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="l" marginBottom="40" className={styles.timelineTrack}>
                 {about.studies.institutions.map((institution, index) => {
                   const institutionLogo = getInstitutionLogo(institution.name);
                   return (
@@ -350,32 +355,32 @@ export default function About() {
                       key={`${institution.name}-${index}`}
                       fillWidth
                       gap="4"
-                      className={styles.contentCard}
+                      className={`${styles.contentCard} ${styles.timelineItem}`}
                     >
-                    <Row gap="12" vertical="center">
-                      {institutionLogo && (
-                        <span
-                          className={styles.organizationLogo}
-                          style={{
-                            width: `${institutionLogo.width}px`,
-                            height: `${institutionLogo.height}px`,
-                          }}
-                        >
-                          <Media
-                            src={institutionLogo.src}
-                            alt={institutionLogo.alt}
-                            sizes={`${institutionLogo.width}px`}
-                            className={styles.logoImage}
-                          />
-                        </span>
-                      )}
-                      <Text id={institution.name} variant="heading-strong-l">
-                        {institution.name}
+                      <Row gap="12" vertical="center">
+                        {institutionLogo && (
+                          <span
+                            className={styles.organizationLogo}
+                            style={{
+                              width: `${institutionLogo.width}px`,
+                              height: `${institutionLogo.height}px`,
+                            }}
+                          >
+                            <Media
+                              src={institutionLogo.src}
+                              alt={institutionLogo.alt}
+                              sizes={`${institutionLogo.width}px`}
+                              className={styles.logoImage}
+                            />
+                          </span>
+                        )}
+                        <Text id={institution.name} variant="heading-strong-l">
+                          {institution.name}
+                        </Text>
+                      </Row>
+                      <Text variant="heading-default-xs" onBackground="neutral-weak">
+                        {institution.description}
                       </Text>
-                    </Row>
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {institution.description}
-                    </Text>
                     </Column>
                   );
                 })}
