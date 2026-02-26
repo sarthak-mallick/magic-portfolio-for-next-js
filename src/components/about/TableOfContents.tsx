@@ -16,9 +16,10 @@ interface TableOfContentsProps {
       subItems: boolean;
     };
   };
+  inline?: boolean;
 }
 
-const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) => {
+const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about, inline = false }) => {
   const scrollTo = (id: string, offset: number) => {
     const element = document.getElementById(id);
     if (element) {
@@ -34,19 +35,8 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
 
   if (!about.tableOfContent.display) return null;
 
-  return (
-    <Column
-      left="0"
-      style={{
-        top: "50%",
-        transform: "translateY(-50%)",
-        whiteSpace: "nowrap",
-      }}
-      position="fixed"
-      paddingLeft="24"
-      gap="32"
-      m={{ hide: true }}
-    >
+  const content = (
+    <>
       {structure
         .filter((section) => section.display)
         .map((section, sectionIndex) => (
@@ -82,6 +72,27 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
             )}
           </Column>
         ))}
+    </>
+  );
+
+  if (inline) {
+    return <Column fillWidth gap="16">{content}</Column>;
+  }
+
+  return (
+    <Column
+      left="0"
+      style={{
+        top: "50%",
+        transform: "translateY(-50%)",
+        whiteSpace: "nowrap",
+      }}
+      position="fixed"
+      paddingLeft="24"
+      gap="32"
+      m={{ hide: true }}
+    >
+      {content}
     </Column>
   );
 };

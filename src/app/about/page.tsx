@@ -28,6 +28,8 @@ export async function generateMetadata() {
 }
 
 export default function About() {
+  const displayedLocation = person.location === "America/New_York" ? "America/Boston" : person.location;
+
   const structure = [
     {
       title: about.intro.title,
@@ -65,18 +67,6 @@ export default function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      {about.tableOfContent.display && (
-        <Column
-          left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
-          position="fixed"
-          paddingLeft="24"
-          gap="32"
-          s={{ hide: true }}
-        >
-          <TableOfContents structure={structure} about={about} />
-        </Column>
-      )}
       <Row fillWidth s={{ direction: "column"}} horizontal="center">
         {about.avatar.display && (
           <Column
@@ -96,7 +86,7 @@ export default function About() {
             <Avatar src={person.avatar} size="xl" />
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
+              {displayedLocation}
             </Row>
             {person.languages && person.languages.length > 0 && (
               <Row wrap gap="8">
@@ -106,6 +96,11 @@ export default function About() {
                   </Tag>
                 ))}
               </Row>
+            )}
+            {about.tableOfContent.display && (
+              <Column fillWidth paddingTop="16">
+                <TableOfContents structure={structure} about={about} inline />
+              </Column>
             )}
           </Column>
         )}
