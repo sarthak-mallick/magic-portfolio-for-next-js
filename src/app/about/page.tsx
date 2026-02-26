@@ -14,6 +14,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
+import StaggerReveal from "@/components/about/StaggerReveal";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 
@@ -254,18 +255,20 @@ export default function About() {
 
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
-                {about.work.title}
-              </Heading>
+              <StaggerReveal delayMs={70}>
+                <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+                  {about.work.title}
+                </Heading>
+              </StaggerReveal>
               <Column fillWidth gap="l" marginBottom="40" className={styles.timelineTrack}>
                 {about.work.experiences.map((experience, index) => {
                   const companyLogo = getWorkLogo(experience.company);
                   return (
-                    <Column
+                    <StaggerReveal
                       key={`${experience.company}-${experience.role}-${index}`}
-                      fillWidth
-                      className={`${styles.contentCard} ${styles.timelineItem}`}
+                      delayMs={140 + index * 110}
                     >
+                      <Column fillWidth className={`${styles.contentCard} ${styles.timelineItem}`}>
                       <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
                         <Row gap="12" vertical="center">
                           {companyLogo && (
@@ -332,7 +335,8 @@ export default function About() {
                           ))}
                         </Row>
                       )}
-                    </Column>
+                      </Column>
+                    </StaggerReveal>
                   );
                 })}
               </Column>
@@ -344,19 +348,20 @@ export default function About() {
 
           {about.studies.display && (
             <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
-                {about.studies.title}
-              </Heading>
+              <StaggerReveal delayMs={100}>
+                <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+                  {about.studies.title}
+                </Heading>
+              </StaggerReveal>
               <Column fillWidth gap="l" marginBottom="40" className={styles.timelineTrack}>
                 {about.studies.institutions.map((institution, index) => {
                   const institutionLogo = getInstitutionLogo(institution.name);
                   return (
-                    <Column
+                    <StaggerReveal
                       key={`${institution.name}-${index}`}
-                      fillWidth
-                      gap="4"
-                      className={`${styles.contentCard} ${styles.timelineItem}`}
+                      delayMs={180 + index * 110}
                     >
+                      <Column fillWidth gap="4" className={`${styles.contentCard} ${styles.timelineItem}`}>
                       <Row gap="12" vertical="center">
                         {institutionLogo && (
                           <span
@@ -381,7 +386,8 @@ export default function About() {
                       <Text variant="heading-default-xs" onBackground="neutral-weak">
                         {institution.description}
                       </Text>
-                    </Column>
+                      </Column>
+                    </StaggerReveal>
                   );
                 })}
               </Column>
