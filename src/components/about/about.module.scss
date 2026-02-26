@@ -8,6 +8,32 @@
     }
 }
 
+.socialChip {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--neutral-alpha-weak);
+    border-radius: var(--radius-m);
+    background: var(--neutral-strong);
+    padding-inline: var(--static-space-12);
+    padding-block: var(--static-space-8);
+    transition:
+        border-color var(--transition-micro-medium),
+        background var(--transition-micro-medium),
+        transform var(--transition-micro-medium),
+        box-shadow var(--transition-micro-medium);
+
+    &:hover {
+        transform: translateY(calc(-1 * var(--static-space-1)));
+        border-color: var(--brand-alpha-medium);
+        background: var(--neutral-medium);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.socialLabel {
+    color: #ffffff;
+}
+
 @media (max-width: breakpoints.$s) {
     .textAlign {
         text-align: center;

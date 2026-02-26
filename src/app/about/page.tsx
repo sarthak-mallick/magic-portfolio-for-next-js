@@ -1,6 +1,5 @@
 import {
   Avatar,
-  Button,
   Column,
   Heading,
   Icon,
@@ -11,6 +10,7 @@ import {
   Meta,
   Schema,
   Row,
+  SmartLink,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -28,7 +28,11 @@ export async function generateMetadata() {
 }
 
 export default function About() {
-  const displayedLocation = person.location === "America/New_York" ? "America/Boston" : person.location;
+  const socialIconColors: Record<string, string> = {
+    GitHub: "#C9D1D9",
+    LinkedIn: "#0A66C2",
+    Email: "#EA4335",
+  };
 
   const structure = [
     {
@@ -86,7 +90,7 @@ export default function About() {
             <Avatar src={person.avatar} size="xl" />
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
-              {displayedLocation}
+              {person.location}
             </Row>
             {person.languages && person.languages.length > 0 && (
               <Row wrap gap="8">
@@ -161,31 +165,24 @@ export default function About() {
                 {social
                       .filter((item) => item.essential)
                       .map(
-                  (item) =>
-                    item.link && (
-                      <React.Fragment key={item.name}>
-                        <Row s={{ hide: true }}>
-                          <Button
-                            key={item.name}
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            weight="default"
-                            variant="secondary"
-                          />
-                        </Row>
-                        <Row hide s={{ hide: false }}>
-                          <IconButton
-                            size="l"
-                            key={`${item.name}-icon`}
-                            href={item.link}
-                            icon={item.icon}
-                            variant="secondary"
-                          />
-                        </Row>
-                      </React.Fragment>
-                    ),
+                        (item) =>
+                          item.link && (
+                            <SmartLink key={item.name} href={item.link} className={styles.socialChip}>
+                              <Row gap="8" vertical="center">
+                                <Icon
+                                  name={item.icon}
+                                  style={{
+                                    color:
+                                      socialIconColors[item.name] ||
+                                      "var(--neutral-on-background-strong)",
+                                  }}
+                                />
+                                <Text variant="body-default-s" className={styles.socialLabel}>
+                                  {item.name}
+                                </Text>
+                              </Row>
+                            </SmartLink>
+                          ),
                 )}
               </Row>
             )}
