@@ -166,7 +166,7 @@
     align-items: center;
     border: 1px solid var(--neutral-alpha-weak);
     border-radius: var(--radius-m);
-    background: var(--neutral-strong);
+    background: var(--surface-background);
     padding-inline: var(--static-space-12);
     padding-block: var(--static-space-8);
     transition:
@@ -178,13 +178,14 @@
     &:hover {
         transform: translateY(calc(-1 * var(--static-space-1)));
         border-color: var(--brand-alpha-medium);
-        background: var(--neutral-medium);
+        background: var(--brand-alpha-weak);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
     }
 }
 
 .socialLabel {
-    color: #ffffff;
+    color: var(--neutral-on-background-strong);
+    font-weight: 600;
 }
 
 @keyframes introTextIn {
