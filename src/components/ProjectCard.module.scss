@@ -28,3 +28,22 @@
     transform: translateY(calc(-1 * var(--static-space-1)));
   }
 }
+
+.projectTitle {
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--neutral-on-background-strong);
+}
+
+.projectDescription {
+  color: var(--neutral-on-background-strong);
+}
+
+.skillLabel {
+  color: var(--neutral-on-background-strong);
+  font-weight: 600;
+}
+
+.linkText {
+  font-weight: 600;
+}

@@ -16,7 +16,7 @@ interface ProjectCardProps {
   href: string;
   priority?: boolean;
   images: string[];
-  title: string;
+  title: React.ReactNode;
   content: string;
   description: string;
   projectIcon?: string;
@@ -54,6 +54,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   projectSkills = [],
   link,
 }) => {
+  const imageAlt = typeof title === "string" ? title : "Project image";
+
   return (
     <Column fillWidth gap="m" className={styles.card}>
       {images.length > 0 && (
@@ -61,7 +63,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           sizes="(max-width: 960px) 100vw, 960px"
           items={images.map((image) => ({
             slide: image,
-            alt: title,
+            alt: imageAlt,
           }))}
         />
       )}
@@ -75,7 +77,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       >
         {title && (
           <Flex flex={5} fillWidth horizontal="center" vertical="center">
-            <Heading as="h2" wrap="balance" align="center" variant="heading-strong-xl">
+            <Heading
+              as="h2"
+              wrap="balance"
+              align="center"
+              variant="heading-strong-xl"
+              onBackground="neutral-strong"
+              className={styles.projectTitle}
+            >
               {title}
             </Heading>
           </Flex>
@@ -94,7 +103,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               <Icon name={projectIcon} onBackground="neutral-weak" />
             </Row>
             {description?.trim() && (
-              <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
+              <Text
+                wrap="balance"
+                variant="body-default-m"
+                onBackground="neutral-strong"
+                className={styles.projectDescription}
+              >
                 {description}
               </Text>
             )}
@@ -119,7 +133,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                           projectSkillIconColors[skill.icon] || "var(--neutral-on-background-strong)",
                       }}
                     />
-                    <Text variant="label-default-s">{skill.name}</Text>
+                    <Text variant="label-default-m" onBackground="neutral-strong" className={styles.skillLabel}>
+                      {skill.name}
+                    </Text>
                   </Row>
                 ))}
               </Row>
@@ -131,7 +147,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={href}
                 >
-                  <Text variant="body-default-s">View details</Text>
+                  <Text variant="body-default-m" onBackground="brand-weak" className={styles.linkText}>
+                    View details
+                  </Text>
                 </SmartLink>
               )}
               {link && (
@@ -140,7 +158,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={link}
                 >
-                  <Text variant="body-default-s">View project</Text>
+                  <Text variant="body-default-m" onBackground="brand-weak" className={styles.linkText}>
+                    View project
+                  </Text>
                 </SmartLink>
               )}
             </Flex>

@@ -49,7 +49,7 @@ export default function About() {
       height: 36,
     },
     iitBombay: {
-      src: "/images/logos/iit-bombay.svg",
+      src: "/images/logos/iit-bombay.png",
       alt: "IIT Bombay logo",
       width: 36,
       height: 36,
