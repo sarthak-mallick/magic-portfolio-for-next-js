@@ -25,6 +25,7 @@ import {
 import {
   SiAmazonwebservices,
   SiApachekafka,
+  SiApachetomcat,
   SiApachespark,
   SiCplusplus,
   SiDocker,
@@ -113,6 +114,7 @@ export const iconLibrary: Record<string, IconType> = {
   linux: SiLinux,
   git: SiGit,
   apachespark: SiApachespark,
+  tomcat: SiApachetomcat,
   bash: SiGnubash,
   hibernate: SiHibernate,
   nextjs: SiNextdotjs,

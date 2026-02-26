@@ -15,3 +15,16 @@
     transform: translateY(calc(-1 * var(--static-space-2)));
   }
 }
+
+.skillTag {
+  transition:
+    border-color var(--transition-micro-medium),
+    background var(--transition-micro-medium),
+    transform var(--transition-micro-medium);
+
+  &:hover {
+    border-color: var(--brand-alpha-medium);
+    background: var(--brand-alpha-weak);
+    transform: translateY(calc(-1 * var(--static-space-1)));
+  }
+}
