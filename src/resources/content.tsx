@@ -8,7 +8,6 @@ const person: Person = {
   role: "Software Engineer",
   avatar: "/images/avatar-cropped.jpeg",
   email: "sarthakmallick444@gmail.com",
-  location: "Boston, MA",
   languages: [],
 };
 

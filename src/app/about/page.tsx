@@ -36,6 +36,8 @@ export async function generateMetadata() {
 }
 
 export default function About() {
+  const locationLabel = "Boston, MA";
+
   const organizationLogos: Record<string, AboutLogo> = {
     sap: {
       src: "/images/logos/sap.svg",
@@ -138,7 +140,7 @@ export default function About() {
             </div>
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
+              {locationLabel}
             </Row>
             {person.languages && person.languages.length > 0 && (
               <Row wrap gap="8">
