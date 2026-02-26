@@ -172,7 +172,7 @@ const about: About = {
   },
   studies: {
     display: true,
-    title: "Studies",
+    title: "Education",
     institutions: [
       {
         name: "Northeastern University",

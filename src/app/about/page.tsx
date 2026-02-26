@@ -211,15 +211,15 @@ export default function About() {
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
                     <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
+                      <Text id={experience.role} variant="heading-strong-l">
+                        {experience.role}
                       </Text>
                       <Text variant="heading-default-xs" onBackground="neutral-weak">
                         {experience.timeframe}
                       </Text>
                     </Row>
                     <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
+                      {experience.company}
                     </Text>
                     <Column as="ul" gap="16">
                       {experience.achievements.map(
