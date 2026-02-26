@@ -6,7 +6,7 @@ const person: Person = {
   lastName: "Mallick",
   name: `Sarthak Mallick`,
   role: "Software Engineer",
-  avatar: "/images/avatar.jpg",
+  avatar: "/images/avatar-cropped.jpeg",
   email: "sarthakmallick444@gmail.com",
   location: "America/New_York", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: [],
@@ -70,7 +70,7 @@ const home: Home = {
 const about: About = {
   path: "/about",
   label: "About",
-  title: `About – ${person.name}`,
+  title: person.name,
   description: `${person.name} is a ${person.role} based in Boston, MA.`,
   tableOfContent: {
     display: true,

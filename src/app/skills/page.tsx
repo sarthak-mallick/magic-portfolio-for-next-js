@@ -2,7 +2,7 @@ import { Column, Heading, Media, Meta, Row, Schema, Tag, Text } from "@once-ui-s
 import { about, baseURL, person } from "@/resources";
 
 const skillsPath = "/skills";
-const skillsTitle = `Technical Skills – ${person.name}`;
+const skillsTitle = "Technical Skills";
 const skillsDescription = `Technical skills and tools used by ${person.name}`;
 
 export async function generateMetadata() {
