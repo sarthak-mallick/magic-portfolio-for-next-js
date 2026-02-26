@@ -1,11 +1,74 @@
 @use "../breakpoints.scss" as breakpoints;
 
+.avatarInteractive {
+    display: inline-flex;
+    border-radius: 999px;
+    will-change: transform;
+    transform-origin: center;
+    transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+
+    &:hover {
+        transform: scale(1.12);
+    }
+}
+
 .hover {
     transition: var(--transition-micro-medium);
 
     &:hover {
         transform: translateX(var(--static-space-4));
     }
+}
+
+.sectionDivider {
+    height: 1px;
+    width: 100%;
+    margin-bottom: var(--static-space-32);
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--neutral-alpha-medium) 18%,
+        var(--brand-alpha-medium) 50%,
+        var(--neutral-alpha-medium) 82%,
+        transparent 100%
+    );
+}
+
+.contentCard {
+    border: 1px solid var(--neutral-alpha-weak);
+    border-radius: var(--radius-l);
+    background: var(--surface-background);
+    padding: var(--static-space-16);
+    transition:
+        border-color var(--transition-micro-medium),
+        background var(--transition-micro-medium),
+        box-shadow var(--transition-micro-medium),
+        transform var(--transition-micro-medium);
+
+    &:hover {
+        border-color: var(--brand-alpha-medium);
+        background: var(--brand-alpha-weak);
+        box-shadow: var(--shadow-l);
+        transform: translateY(calc(-1 * var(--static-space-1)));
+    }
+}
+
+.organizationLogo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid var(--neutral-alpha-weak);
+    border-radius: var(--radius-s);
+    background: var(--surface-background);
+    padding: var(--static-space-4);
+}
+
+.logoImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .socialChip {
@@ -41,5 +104,9 @@
 
     .blockAlign {
         align-self: center;
+    }
+
+    .contentCard {
+        padding: var(--static-space-12);
     }
 }

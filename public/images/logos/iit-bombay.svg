@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="iitTitle iitDesc">
+  <title id="iitTitle">IIT Bombay logo</title>
+  <desc id="iitDesc">Circular emblem style mark with IITB text.</desc>
+  <circle cx="60" cy="60" r="56" fill="#1B4F9C"/>
+  <circle cx="60" cy="60" r="45" fill="#FFFFFF"/>
+  <circle cx="60" cy="60" r="34" fill="#E8F0FF"/>
+  <path d="M42 42h36v8H42zm0 14h36v8H42zm0 14h22v8H42z" fill="#1B4F9C"/>
+  <text x="60" y="97" text-anchor="middle" fill="#1B4F9C" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">IITB</text>
+</svg>

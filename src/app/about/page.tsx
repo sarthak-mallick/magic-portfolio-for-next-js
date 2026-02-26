@@ -17,6 +17,13 @@ import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 
+type AboutLogo = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
 export async function generateMetadata() {
   return Meta.generate({
     title: about.title,
@@ -28,6 +35,44 @@ export async function generateMetadata() {
 }
 
 export default function About() {
+  const organizationLogos: Record<string, AboutLogo> = {
+    sap: {
+      src: "/images/logos/sap.svg",
+      alt: "SAP logo",
+      width: 56,
+      height: 30,
+    },
+    northeastern: {
+      src: "/images/logos/northeastern.svg",
+      alt: "Northeastern University logo",
+      width: 36,
+      height: 36,
+    },
+    iitBombay: {
+      src: "/images/logos/iit-bombay.svg",
+      alt: "IIT Bombay logo",
+      width: 36,
+      height: 36,
+    },
+  };
+
+  const getWorkLogo = (company: string) => {
+    if (company.toLowerCase().includes("sap")) {
+      return organizationLogos.sap;
+    }
+    return null;
+  };
+
+  const getInstitutionLogo = (institutionName: string) => {
+    if (institutionName.includes("Northeastern")) {
+      return organizationLogos.northeastern;
+    }
+    if (institutionName.includes("Indian Institute of Technology Bombay")) {
+      return organizationLogos.iitBombay;
+    }
+    return null;
+  };
+
   const socialIconColors: Record<string, string> = {
     GitHub: "#C9D1D9",
     LinkedIn: "#0A66C2",
@@ -87,7 +132,9 @@ export default function About() {
             flex={3}
             horizontal="center"
           >
-            <Avatar src={person.avatar} size="xl" />
+            <div className={styles.avatarInteractive}>
+              <Avatar src={person.avatar} size="xl" />
+            </div>
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
               {person.location}
@@ -189,9 +236,18 @@ export default function About() {
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
+            <Column
+              className={styles.contentCard}
+              textVariant="body-default-l"
+              fillWidth
+              gap="m"
+              marginBottom="xl"
+            >
               {about.intro.description}
             </Column>
+          )}
+          {(about.work.display || about.studies.display || about.technical.display) && (
+            <div className={styles.sectionDivider} aria-hidden="true" />
           )}
 
           {about.work.display && (
@@ -200,12 +256,36 @@ export default function About() {
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                {about.work.experiences.map((experience, index) => {
+                  const companyLogo = getWorkLogo(experience.company);
+                  return (
+                    <Column
+                      key={`${experience.company}-${experience.role}-${index}`}
+                      fillWidth
+                      className={styles.contentCard}
+                    >
                     <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.role} variant="heading-strong-l">
-                        {experience.role}
-                      </Text>
+                      <Row gap="12" vertical="center">
+                        {companyLogo && (
+                          <span
+                            className={styles.organizationLogo}
+                            style={{
+                              width: `${companyLogo.width}px`,
+                              height: `${companyLogo.height}px`,
+                            }}
+                          >
+                            <Media
+                              src={companyLogo.src}
+                              alt={companyLogo.alt}
+                              sizes={`${companyLogo.width}px`}
+                              className={styles.logoImage}
+                            />
+                          </span>
+                        )}
+                        <Text id={experience.role} variant="heading-strong-l">
+                          {experience.role}
+                        </Text>
+                      </Row>
                       <Text variant="heading-default-xs" onBackground="neutral-weak">
                         {experience.timeframe}
                       </Text>
@@ -247,10 +327,14 @@ export default function About() {
                         ))}
                       </Row>
                     )}
-                  </Column>
-                ))}
+                    </Column>
+                  );
+                })}
               </Column>
             </>
+          )}
+          {(about.studies.display || about.technical.display) && (
+            <div className={styles.sectionDivider} aria-hidden="true" />
           )}
 
           {about.studies.display && (
@@ -259,19 +343,46 @@ export default function About() {
                 {about.studies.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
-                {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                    <Text id={institution.name} variant="heading-strong-l">
-                      {institution.name}
-                    </Text>
+                {about.studies.institutions.map((institution, index) => {
+                  const institutionLogo = getInstitutionLogo(institution.name);
+                  return (
+                    <Column
+                      key={`${institution.name}-${index}`}
+                      fillWidth
+                      gap="4"
+                      className={styles.contentCard}
+                    >
+                    <Row gap="12" vertical="center">
+                      {institutionLogo && (
+                        <span
+                          className={styles.organizationLogo}
+                          style={{
+                            width: `${institutionLogo.width}px`,
+                            height: `${institutionLogo.height}px`,
+                          }}
+                        >
+                          <Media
+                            src={institutionLogo.src}
+                            alt={institutionLogo.alt}
+                            sizes={`${institutionLogo.width}px`}
+                            className={styles.logoImage}
+                          />
+                        </span>
+                      )}
+                      <Text id={institution.name} variant="heading-strong-l">
+                        {institution.name}
+                      </Text>
+                    </Row>
                     <Text variant="heading-default-xs" onBackground="neutral-weak">
                       {institution.description}
                     </Text>
-                  </Column>
-                ))}
+                    </Column>
+                  );
+                })}
               </Column>
             </>
           )}
+          {about.technical.display && <div className={styles.sectionDivider} aria-hidden="true" />}
 
           {about.technical.display && (
             <>
@@ -285,7 +396,7 @@ export default function About() {
               </Heading>
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
+                  <Column key={`${skill}-${index}`} fillWidth gap="4" className={styles.contentCard}>
                     <Text id={skill.title} variant="heading-strong-l">
                       {skill.title}
                     </Text>
