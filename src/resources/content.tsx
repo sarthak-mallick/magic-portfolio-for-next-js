@@ -57,7 +57,7 @@ const home: Home = {
         </Text>
       </Row>
     ),
-    href: "/work/distributed-real-time-task-queue",
+    href: "/projects/distributed-real-time-task-queue",
   },
   subline: (
     <>
@@ -312,7 +312,7 @@ const blog: Blog = {
 };
 
 const work: Work = {
-  path: "/work",
+  path: "/projects",
   label: "Projects",
   title: "Projects",
   description: `Cloud and distributed systems projects by ${person.name}`,
