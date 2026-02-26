@@ -8,6 +8,12 @@ interface ProjectsProps {
 }
 
 export function Projects({ range, exclude }: ProjectsProps) {
+  const projectIconBySlug: Record<string, string> = {
+    "cloud-infrastructure-devops": "globe",
+    "distributed-real-time-task-queue": "rocket",
+    "project-management-system": "grid",
+  };
+
   let allProjects = getPosts(["src", "app", "work", "projects"]);
 
   // Exclude by slug (exact match)
@@ -34,7 +40,7 @@ export function Projects({ range, exclude }: ProjectsProps) {
           title={post.metadata.title}
           description={post.metadata.summary}
           content={post.content}
-          avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
+          projectIcon={projectIconBySlug[post.slug] || "document"}
           link={post.metadata.link || ""}
         />
       ))}

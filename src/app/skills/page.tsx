@@ -1,5 +1,6 @@
 import { Column, Heading, Media, Meta, Row, Schema, Tag, Text } from "@once-ui-system/core";
 import { about, baseURL, person } from "@/resources";
+import styles from "./skills.module.scss";
 
 const skillsPath = "/skills";
 const skillsTitle = "Technical Skills";
@@ -37,7 +38,7 @@ export default function SkillsPage() {
       <Row fillWidth horizontal="center">
         <Column fillWidth maxWidth={48} gap="l">
           {about.technical.skills.map((skill, index) => (
-            <Column key={`${skill.title}-${index}`} fillWidth gap="4">
+            <Column key={`${skill.title}-${index}`} fillWidth gap="4" className={styles.card}>
               <Text id={skill.title} variant="heading-strong-l">
                 {skill.title}
               </Text>

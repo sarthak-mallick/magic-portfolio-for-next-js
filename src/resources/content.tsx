@@ -203,13 +203,31 @@ const about: About = {
         tags: [
           {
             name: "Go",
+            icon: "go",
           },
           {
             name: "TypeScript",
+            icon: "typescript",
           },
           {
             name: "JavaScript",
             icon: "javascript",
+          },
+          {
+            name: "Python",
+            icon: "python",
+          },
+          {
+            name: "Java",
+            icon: "java",
+          },
+          {
+            name: "C++",
+            icon: "cplusplus",
+          },
+          {
+            name: "Bash",
+            icon: "bash",
           },
         ],
         images: [],
@@ -222,9 +240,11 @@ const about: About = {
         tags: [
           {
             name: "Node.js",
+            icon: "nodejs",
           },
           {
             name: "React",
+            icon: "react",
           },
           {
             name: "Next.js",
@@ -232,6 +252,11 @@ const about: About = {
           },
           {
             name: "GraphQL",
+            icon: "graphql",
+          },
+          {
+            name: "Spring Boot",
+            icon: "springboot",
           },
         ],
         images: [],
@@ -244,15 +269,31 @@ const about: About = {
         tags: [
           {
             name: "Kafka",
+            icon: "kafka",
           },
           {
             name: "RabbitMQ",
+            icon: "rabbitmq",
           },
           {
             name: "MongoDB",
+            icon: "mongodb",
           },
           {
             name: "Redis",
+            icon: "redis",
+          },
+          {
+            name: "PostgreSQL",
+            icon: "postgresql",
+          },
+          {
+            name: "MySQL",
+            icon: "mysql",
+          },
+          {
+            name: "Elasticsearch",
+            icon: "elasticsearch",
           },
         ],
         images: [],
@@ -267,15 +308,31 @@ const about: About = {
         tags: [
           {
             name: "AWS",
+            icon: "aws",
+          },
+          {
+            name: "GCP",
+            icon: "gcp",
           },
           {
             name: "Docker",
+            icon: "docker",
           },
           {
             name: "Kubernetes",
+            icon: "kubernetes",
           },
           {
             name: "Terraform",
+            icon: "terraform",
+          },
+          {
+            name: "Jenkins",
+            icon: "jenkins",
+          },
+          {
+            name: "GitHub Actions",
+            icon: "githubActions",
           },
         ],
         images: [],
@@ -290,12 +347,15 @@ const about: About = {
         tags: [
           {
             name: "Linux",
+            icon: "linux",
           },
           {
             name: "Git",
+            icon: "git",
           },
           {
             name: "Apache Spark",
+            icon: "apachespark",
           },
         ],
         images: [],

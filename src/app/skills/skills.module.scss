@@ -2,11 +2,12 @@
   border: 1px solid var(--neutral-alpha-weak);
   border-radius: var(--radius-l);
   background: var(--surface-background);
-  overflow: hidden;
+  padding: var(--static-space-16);
   transition:
     border-color var(--transition-micro-medium),
     box-shadow var(--transition-micro-medium),
-    transform var(--transition-micro-medium);
+    transform var(--transition-micro-medium),
+    background var(--transition-micro-medium);
 
   &:hover {
     border-color: var(--brand-alpha-medium);
@@ -15,3 +16,4 @@
     transform: translateY(calc(-1 * var(--static-space-2)));
   }
 }
+
