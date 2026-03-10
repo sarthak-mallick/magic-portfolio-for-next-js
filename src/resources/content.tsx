@@ -100,23 +100,26 @@ const about: About = {
       {
         company: "SAP Labs",
         timeframe: "Jan 2023 - Apr 2024",
-        role: "Software Engineer II",
+        role: "Senior Software Engineer",
         achievements: [
           <>
-            Managed a 12-member team as technical co-lead within a 150-member cross-functional
-            organization and delivered multiple product versions.
+            Managed a 12-member team as technical co-lead for an enterprise supply chain solution
+            within a 150-member cross-functional organization. Delivered 5 major and 15+ minor
+            releases while defining sprint backlogs with architects and product owners.
           </>,
           <>
-            Developed cloud-native multi-tenant microservices in Node.js with configurable business
-            logic, ACID transaction handling, and OData REST APIs serving 100K+ operations daily.
+            Developed a cloud-native multi-tenant microservice application in Node.js serving
+            enterprise clients with configurable business logic, ACID transaction handling, and
+            OData RESTful APIs to handle 1M+ service and DB operations daily.
           </>,
           <>
-            Engineered event-driven architecture using AMQP and event mesh for 10K+ async events per
-            day with delivery guarantees and retry strategies.
+            Engineered event-driven system architecture with AMQP and message broker handling 50K+
+            asynchronous events daily. Implemented guaranteed delivery and retry mechanisms to
+            reduce system coupling and improve fault tolerance.
           </>,
           <>
-            Conducted 15+ interviews and mentored new engineers on code reviews, architecture, and
-            Agile SDLC practices.
+            Conducted 15+ interviews for hiring and mentored recruits on tech ramp-up, code reviews,
+            and Agile SDLC practices.
           </>,
         ],
         technologies: [
@@ -134,22 +137,28 @@ const about: About = {
         role: "Software Engineer",
         achievements: [
           <>
-            Architected 3NF normalized schema and domain model for orders, shipments, and materials
-            using CAP and CDS with referential integrity constraints.
+            Architected 3NF normalized schema modeling 30+ entities using CAP by leveraging CDS
+            associations and compositions with referential integrity constraints.
           </>,
           <>
-            Redesigned query patterns and batching strategy to reduce database calls by 80%.
+            Reduced response latency by 85% by batching queries and refactoring the data access
+            layer to consolidate entity fetches.
           </>,
           <>
-            Built a backend change data capture framework with configurable event notifications for
-            create and update flows.
+            Set up CI/CD pipeline in Jenkins with containerization, unit and integration testing,
+            version control, and deployment triggers.
           </>,
           <>
-            Set up CI/CD pipelines with Jenkins and containerization, plus Elasticsearch and Kibana
-            tracing with correlation IDs.
+            Built change data capture framework tracking field-level mutations to trigger 50K+
+            downstream event notifications daily.
           </>,
           <>
-            Conducted workshops for 40+ developers on SAP BTP and JDBC migration to cloud workflows.
+            Instrumented Elasticsearch and Kibana logging with correlation ID-based distributed
+            request tracing across services.
+          </>,
+          <>
+            Delivered 4 week-long workshops with lectures and hands-on labs for 40+ developers on
+            SAP BTP, Node.js, and JDBC.
           </>,
         ],
         technologies: [
@@ -166,16 +175,16 @@ const about: About = {
         role: "Associate Software Engineer",
         achievements: [
           <>
-            Built full-stack transportation planning features with SAPUI5 frontend, Node.js backend,
-            and HANA DB integration.
+            Built full-stack features for transportation planning application with SAPUI5 frontend,
+            Node.js backend, and HANA DB.
           </>,
           <>
-            Implemented a unified data model to simplify data flow and improve consistency across
-            planning modules.
+            Redesigned architecture by implementing a unified data model to streamline processes
+            and improve data consistency.
           </>,
           <>
-            Reduced authentication overhead by caching OAuth tokens in `node-cache`, eliminating 95%
-            of redundant JWT requests.
+            Eliminated 95% of calls to authentication service across all API requests by caching
+            OAuth tokens in node-cache.
           </>,
         ],
         technologies: [
