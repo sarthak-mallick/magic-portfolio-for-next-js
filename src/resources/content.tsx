@@ -153,10 +153,6 @@ const about: About = {
             downstream event notifications daily.
           </>,
           <>
-            Instrumented Elasticsearch and Kibana logging with correlation ID-based distributed
-            request tracing across services.
-          </>,
-          <>
             Delivered 4 week-long workshops with lectures and hands-on labs for 40+ developers on
             SAP BTP, Node.js, and JDBC.
           </>,
@@ -174,6 +170,10 @@ const about: About = {
         timeframe: "Jul 2020 - Dec 2020",
         role: "Associate Software Engineer",
         achievements: [
+          <>
+            Instrumented Elasticsearch and Kibana logging with correlation ID-based distributed
+            request tracing across services.
+          </>,
           <>
             Built full-stack features for transportation planning application with SAPUI5 frontend,
             Node.js backend, and HANA DB.
@@ -288,11 +288,44 @@ const about: About = {
         images: [],
       },
       {
-        title: "Data & Messaging",
+        title: "AI Tools & Frameworks",
         description: (
-          <>PostgreSQL, MongoDB, Redis, Kafka, RabbitMQ, MySQL, Oracle DB, and Elasticsearch.</>
+          <>Claude Code, RAG, AI Agents, Vector Databases, LangChain, LangGraph, and Gemini.</>
         ),
         tags: [
+          {
+            name: "Claude Code",
+            icon: "anthropic",
+          },
+          {
+            name: "LangChain",
+            icon: "langchain",
+          },
+          {
+            name: "LangGraph",
+            icon: "langchain",
+          },
+          {
+            name: "Gemini",
+            icon: "gemini",
+          },
+          {
+            name: "pgvector",
+            icon: "postgresql",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "Data & Messaging",
+        description: (
+          <>PostgreSQL, MongoDB, Redis, Kafka, RabbitMQ, MySQL, Oracle DB, Elasticsearch, and Supabase.</>
+        ),
+        tags: [
+          {
+            name: "Supabase",
+            icon: "supabase",
+          },
           {
             name: "Kafka",
             icon: "kafka",
@@ -328,7 +361,7 @@ const about: About = {
         title: "Cloud & DevOps",
         description: (
           <>
-            AWS, GCP, Azure, Docker, Kubernetes, Terraform, Packer, Jenkins, and GitHub Actions.
+            AWS, GCP, Azure, Docker, Kubernetes, Terraform, Packer, Jenkins, GitHub Actions, Linux, and Git.
           </>
         ),
         tags: [
@@ -360,17 +393,6 @@ const about: About = {
             name: "GitHub Actions",
             icon: "githubActions",
           },
-        ],
-        images: [],
-      },
-      {
-        title: "Tools & Platforms",
-        description: (
-          <>
-            Linux, UNIX, Git, Apache Spark, MATLAB, Android Studio, Flutter, Claude, and Codex.
-          </>
-        ),
-        tags: [
           {
             name: "Linux",
             icon: "linux",
@@ -378,10 +400,6 @@ const about: About = {
           {
             name: "Git",
             icon: "git",
-          },
-          {
-            name: "Apache Spark",
-            icon: "apachespark",
           },
         ],
         images: [],

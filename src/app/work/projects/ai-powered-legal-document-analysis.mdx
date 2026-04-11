@@ -1,0 +1,30 @@
+---
+title: "AI-Powered Legal Document Analysis"
+publishedAt: "2026-04-10"
+summary: "A RAG-based legal document analysis platform with LangChain, LangGraph agentic workflows, Gemini Flash LLM, and pgvector for sub-second semantic retrieval."
+team:
+  - name: "Sarthak Mallick"
+    role: "Software Engineer"
+    avatar: "/images/avatar-cropped.jpeg"
+    linkedIn: "https://linkedin.com/in/sarthak-mallick"
+link: "https://github.com/sarthak-mallick/Legal-Document-Analysis"
+---
+
+## Overview
+
+Built a RAG-based legal document analysis platform using LangChain and Gemini Flash as the reasoning and synthesis LLM.
+
+## Ingestion Pipeline
+
+- Implemented end-to-end ingestion: PDF parsing, recursive text chunking, and embedding generation (768-dim).
+- Stored embeddings in **pgvector** as a Vector DB with HNSW-indexed cosine similarity search for sub-second retrieval.
+
+## Agentic Workflow
+
+- Designed a multi-step agentic workflow with **LangGraph**: query classification, retrieval, context evaluation, tool calling, and synthesis.
+- Added conditional routing and retry logic for iterative context refinement.
+
+## Features
+
+- Built cross-document comparison, risk flagging, and coverage gap detection with citations.
+- Implemented SSE streaming chat and **Supabase Auth** for secure access.

@@ -6,36 +6,40 @@ const skillsPath = "/skills";
 const skillsTitle = "Technical Skills";
 const skillsDescription = `Technical skills and tools used by ${person.name}`;
 
-const iconColors: Record<string, string> = {
-  go: "#00ADD8",
-  typescript: "#3178C6",
-  javascript: "#F7DF1E",
-  python: "#3776AB",
-  java: "#ED8B00",
-  cplusplus: "#00599C",
-  bash: "#4EAA25",
-  nodejs: "#339933",
-  react: "#61DAFB",
-  nextjs: "#111111",
-  graphql: "#E10098",
-  springboot: "#6DB33F",
-  kafka: "#231F20",
-  rabbitmq: "#FF6600",
-  mongodb: "#47A248",
-  redis: "#DC382D",
-  postgresql: "#336791",
-  mysql: "#4479A1",
-  elasticsearch: "#005571",
-  aws: "#FF9900",
-  gcp: "#4285F4",
-  docker: "#2496ED",
-  kubernetes: "#326CE5",
-  terraform: "#844FBA",
-  jenkins: "#D24939",
-  githubActions: "#2088FF",
-  linux: "#FCC624",
-  git: "#F05032",
-  apachespark: "#E25A1C",
+const iconColors: Record<string, { light: string; dark: string }> = {
+  go:            { light: "#00ADD8", dark: "#00ADD8" },
+  typescript:    { light: "#3178C6", dark: "#3178C6" },
+  javascript:    { light: "#B8A200", dark: "#F7DF1E" },
+  python:        { light: "#3776AB", dark: "#4B8BBE" },
+  java:          { light: "#ED8B00", dark: "#ED8B00" },
+  cplusplus:     { light: "#00599C", dark: "#659AD2" },
+  bash:          { light: "#3D8A1E", dark: "#4EAA25" },
+  nodejs:        { light: "#339933", dark: "#5FA04E" },
+  react:         { light: "#087EA4", dark: "#61DAFB" },
+  nextjs:        { light: "#111111", dark: "#EEEEEE" },
+  graphql:       { light: "#E10098", dark: "#E10098" },
+  springboot:    { light: "#6DB33F", dark: "#6DB33F" },
+  kafka:         { light: "#231F20", dark: "#DEDEDE" },
+  rabbitmq:      { light: "#FF6600", dark: "#FF6600" },
+  mongodb:       { light: "#47A248", dark: "#47A248" },
+  redis:         { light: "#DC382D", dark: "#DC382D" },
+  postgresql:    { light: "#336791", dark: "#5E9BCF" },
+  mysql:         { light: "#4479A1", dark: "#5B99C7" },
+  elasticsearch: { light: "#005571", dark: "#1BA9F5" },
+  aws:           { light: "#CC7A00", dark: "#FF9900" },
+  gcp:           { light: "#4285F4", dark: "#4285F4" },
+  docker:        { light: "#2496ED", dark: "#2496ED" },
+  kubernetes:    { light: "#326CE5", dark: "#326CE5" },
+  terraform:     { light: "#844FBA", dark: "#844FBA" },
+  jenkins:       { light: "#D24939", dark: "#D24939" },
+  githubActions: { light: "#2088FF", dark: "#2088FF" },
+  linux:         { light: "#B88E00", dark: "#FCC624" },
+  git:           { light: "#F05032", dark: "#F05032" },
+  apachespark:   { light: "#E25A1C", dark: "#E25A1C" },
+  anthropic:     { light: "#191919", dark: "#E0D5C1" },
+  langchain:     { light: "#1C3C3C", dark: "#3FB27F" },
+  gemini:        { light: "#8E75B2", dark: "#A68DC9" },
+  supabase:      { light: "#2D9B63", dark: "#3FCF8E" },
 };
 
 export async function generateMetadata() {
@@ -80,6 +84,7 @@ export default function SkillsPage() {
                     .filter((tag) => tag.icon)
                     .map((tag, tagIndex) => {
                       const iconName = tag.icon as string;
+                      const colors = iconColors[iconName];
                       return (
                         <Row
                           key={`${skill.title}-${tagIndex}`}
@@ -91,12 +96,14 @@ export default function SkillsPage() {
                           gap="8"
                           vertical="center"
                           className={styles.skillTag}
+                          style={{
+                            "--icon-color-light": colors?.light || "var(--neutral-on-background-strong)",
+                            "--icon-color-dark": colors?.dark || "var(--neutral-on-background-strong)",
+                          } as React.CSSProperties}
                         >
                           <Icon
                             name={iconName}
-                            style={{
-                              color: iconColors[iconName] || "var(--neutral-on-background-strong)",
-                            }}
+                            className={styles.skillIcon}
                           />
                           <Text variant="body-default-s">{tag.name}</Text>
                         </Row>

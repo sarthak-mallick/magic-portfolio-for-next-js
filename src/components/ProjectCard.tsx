@@ -24,24 +24,29 @@ interface ProjectCardProps {
   link: string;
 }
 
-const projectSkillIconColors: Record<string, string> = {
-  go: "#00ADD8",
-  javascript: "#F7DF1E",
-  nodejs: "#339933",
-  react: "#61DAFB",
-  springboot: "#6DB33F",
-  hibernate: "#59666C",
-  kafka: "#231F20",
-  rabbitmq: "#FF6600",
-  redis: "#DC382D",
-  mysql: "#4479A1",
-  docker: "#2496ED",
-  kubernetes: "#326CE5",
-  terraform: "#844FBA",
-  aws: "#FF9900",
-  githubActions: "#2088FF",
-  java: "#ED8B00",
-  tomcat: "#F8DC75",
+const projectSkillIconColors: Record<string, { light: string; dark: string }> = {
+  go:            { light: "#00ADD8", dark: "#00ADD8" },
+  javascript:    { light: "#B8A200", dark: "#F7DF1E" },
+  nodejs:        { light: "#339933", dark: "#5FA04E" },
+  react:         { light: "#087EA4", dark: "#61DAFB" },
+  springboot:    { light: "#6DB33F", dark: "#6DB33F" },
+  hibernate:     { light: "#59666C", dark: "#8A9BA8" },
+  kafka:         { light: "#231F20", dark: "#DEDEDE" },
+  rabbitmq:      { light: "#FF6600", dark: "#FF6600" },
+  redis:         { light: "#DC382D", dark: "#DC382D" },
+  mysql:         { light: "#4479A1", dark: "#5B99C7" },
+  docker:        { light: "#2496ED", dark: "#2496ED" },
+  kubernetes:    { light: "#326CE5", dark: "#326CE5" },
+  terraform:     { light: "#844FBA", dark: "#844FBA" },
+  aws:           { light: "#CC7A00", dark: "#FF9900" },
+  githubActions: { light: "#2088FF", dark: "#2088FF" },
+  java:          { light: "#ED8B00", dark: "#ED8B00" },
+  tomcat:        { light: "#B8A200", dark: "#F8DC75" },
+  typescript:    { light: "#3178C6", dark: "#3178C6" },
+  langchain:     { light: "#1C3C3C", dark: "#3FB27F" },
+  gemini:        { light: "#8E75B2", dark: "#A68DC9" },
+  postgresql:    { light: "#336791", dark: "#5E9BCF" },
+  supabase:      { light: "#2D9B63", dark: "#3FCF8E" },
 };
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -125,13 +130,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     gap="4"
                     vertical="center"
                     className={styles.skillTag}
+                    style={{
+                      "--icon-color-light": projectSkillIconColors[skill.icon]?.light || "var(--neutral-on-background-strong)",
+                      "--icon-color-dark": projectSkillIconColors[skill.icon]?.dark || "var(--neutral-on-background-strong)",
+                    } as React.CSSProperties}
                   >
                     <Icon
                       name={skill.icon}
-                      style={{
-                        color:
-                          projectSkillIconColors[skill.icon] || "var(--neutral-on-background-strong)",
-                      }}
+                      className={styles.skillIcon}
                     />
                     <Text variant="label-default-m" onBackground="neutral-strong" className={styles.skillLabel}>
                       {skill.name}

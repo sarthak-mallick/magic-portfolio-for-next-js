@@ -58,6 +58,9 @@ import {
   SiGnubash,
   SiFigma,
   SiSupabase,
+  SiLangchain,
+  SiGooglegemini,
+  SiAnthropic,
 } from "react-icons/si";
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaInstagram, FaXTwitter, FaFacebook, FaPinterest, FaWhatsapp, FaReddit, FaTelegram, } from "react-icons/fa6";
@@ -119,6 +122,9 @@ export const iconLibrary: Record<string, IconType> = {
   hibernate: SiHibernate,
   nextjs: SiNextdotjs,
   supabase: SiSupabase,
+  langchain: SiLangchain,
+  gemini: SiGooglegemini,
+  anthropic: SiAnthropic,
   figma: SiFigma,
   facebook: FaFacebook,
   pinterest: FaPinterest,

@@ -16,6 +16,14 @@
   }
 }
 
+.skillIcon {
+  color: var(--icon-color-light);
+
+  :global([data-theme="dark"]) & {
+    color: var(--icon-color-dark);
+  }
+}
+
 .skillTag {
   transition:
     border-color var(--transition-micro-medium),

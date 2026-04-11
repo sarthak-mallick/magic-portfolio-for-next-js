@@ -11,6 +11,7 @@ interface ProjectsProps {
 export function Projects({ range, exclude }: ProjectsProps) {
   const projectIconBySlug: Record<string, string> = {
     "cloud-infrastructure-devops": "globe",
+    "ai-powered-legal-document-analysis": "document",
     "distributed-real-time-task-queue": "rocket",
     "project-management-system": "grid",
   };
@@ -21,6 +22,14 @@ export function Projects({ range, exclude }: ProjectsProps) {
       { name: "Docker", icon: "docker" },
       { name: "Terraform", icon: "terraform" },
       { name: "GitHub Actions", icon: "githubActions" },
+    ],
+    "ai-powered-legal-document-analysis": [
+      { name: "LangChain", icon: "langchain" },
+      { name: "LangGraph", icon: "langchain" },
+      { name: "Gemini", icon: "gemini" },
+      { name: "pgvector", icon: "postgresql" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "Supabase", icon: "supabase" },
     ],
     "distributed-real-time-task-queue": [
       { name: "Go", icon: "go" },
@@ -41,7 +50,8 @@ export function Projects({ range, exclude }: ProjectsProps) {
   };
   const projectDisplayOrder: Record<string, number> = {
     "cloud-infrastructure-devops": 1,
-    "distributed-real-time-task-queue": 2,
+    "ai-powered-legal-document-analysis": 2,
+    "distributed-real-time-task-queue": 3,
   };
 
   let allProjects = getPosts(["src", "app", "work", "projects"]);
@@ -70,6 +80,13 @@ export function Projects({ range, exclude }: ProjectsProps) {
         Cloud Infrastructure
         <br />
         &amp; DevOps
+      </>
+    ),
+    "ai-powered-legal-document-analysis": (
+      <>
+        AI-Powered Legal
+        <br />
+        Document Analysis
       </>
     ),
     "project-management-system": (
