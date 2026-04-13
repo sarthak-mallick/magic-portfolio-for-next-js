@@ -300,9 +300,6 @@ export default function About() {
                       <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
                         {experience.company}
                       </Text>
-                      <Text variant="label-strong-s" onBackground="neutral-weak" marginBottom="8">
-                        Key Wins
-                      </Text>
                       <Column as="ul" gap="16">
                         {experience.achievements.map(
                           (achievement: React.ReactNode, achievementIndex: number) => (

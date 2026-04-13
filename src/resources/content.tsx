@@ -103,23 +103,22 @@ const about: About = {
         role: "Senior Software Engineer",
         achievements: [
           <>
-            Managed a 12-member team as technical co-lead for an enterprise supply chain solution
-            within a 150-member cross-functional organization. Delivered 5 major and 15+ minor
-            releases while defining sprint backlogs with architects and product owners.
+            Delivered 5+ major releases for enterprise supply chain platform as co-lead, managing a
+            12-member engineering team
           </>,
           <>
-            Developed a cloud-native multi-tenant microservice application in Node.js serving
+            Developed cloud-native multi-tenant microservice application in Node.js serving
             enterprise clients with configurable business logic, ACID transaction handling, and
-            OData RESTful APIs to handle 1M+ service and DB operations daily.
+            OData RESTful APIs to handle 1M+ service and DB operations daily
           </>,
           <>
             Engineered event-driven system architecture with AMQP and message broker handling 50K+
-            asynchronous events daily. Implemented guaranteed delivery and retry mechanisms to
-            reduce system coupling and improve fault tolerance.
+            asynchronous events daily, implementing guaranteed delivery and retry mechanisms for
+            fault tolerance and reduced system coupling
           </>,
           <>
-            Conducted 15+ interviews for hiring and mentored recruits on tech ramp-up, code reviews,
-            and Agile SDLC practices.
+            Implemented role-based access control (RBAC) and feature flag framework across the
+            full-stack for controlled feature rollout
           </>,
         ],
         technologies: [
@@ -137,24 +136,23 @@ const about: About = {
         role: "Software Engineer",
         achievements: [
           <>
-            Architected 3NF normalized schema modeling 30+ entities using CAP by leveraging CDS
-            associations and compositions with referential integrity constraints.
+            Architected the core data layer modeling 50+ entities in 3NF for the supply chain
+            platform, serving as the shared foundation across multiple microservices and powering
+            20+ business workflows
           </>,
           <>
-            Reduced response latency by 85% by batching queries and refactoring the data access
-            layer to consolidate entity fetches.
+            Engineered change data capture framework with configurable field-level mutation tracking,
+            eliminating manual per-service event implementation and delivering downstream
+            notifications across microservices and external systems
           </>,
           <>
-            Set up CI/CD pipeline in Jenkins with containerization, unit and integration testing,
-            version control, and deployment triggers.
+            Instrumented Elasticsearch and Kibana based monitoring and distributed request tracing
+            with correlation IDs across 20+ services, enabling end-to-end observability into
+            inter-service communication and reducing mean time to resolution by 60%
           </>,
           <>
-            Built change data capture framework tracking field-level mutations to trigger 50K+
-            downstream event notifications daily.
-          </>,
-          <>
-            Delivered 4 week-long workshops with lectures and hands-on labs for 40+ developers on
-            SAP BTP, Node.js, and JDBC.
+            Reduced response latency by 85% by batching queries and refactoring data access layer
+            to consolidate entity fetches
           </>,
         ],
         technologies: [
@@ -171,20 +169,13 @@ const about: About = {
         role: "Associate Software Engineer",
         achievements: [
           <>
-            Instrumented Elasticsearch and Kibana logging with correlation ID-based distributed
-            request tracing across services.
-          </>,
-          <>
-            Built full-stack features for transportation planning application with SAPUI5 frontend,
-            Node.js backend, and HANA DB.
-          </>,
-          <>
-            Redesigned architecture by implementing a unified data model to streamline processes
-            and improve data consistency.
+            Migrated business logic from HANA stored procedures and functions to Node.js application
+            layer across 30+ tables spanning 5 services, decoupling compute from the database and
+            improving maintainability and testability
           </>,
           <>
             Eliminated 95% of calls to authentication service across all API requests by caching
-            OAuth tokens in node-cache.
+            OAuth tokens in node-cache
           </>,
         ],
         technologies: [
@@ -223,29 +214,25 @@ const about: About = {
         title: "Programming",
         description: (
           <>
-            Java, Python, JavaScript, TypeScript, C/C++, SQL, NoSQL, Bash, and Go/Golang.
+            Java, Python, JavaScript, TypeScript, C/C++, Bash, and Go/Golang.
           </>
         ),
         tags: [
           {
-            name: "Go",
-            icon: "go",
-          },
-          {
-            name: "TypeScript",
-            icon: "typescript",
-          },
-          {
-            name: "JavaScript",
-            icon: "javascript",
+            name: "Java",
+            icon: "java",
           },
           {
             name: "Python",
             icon: "python",
           },
           {
-            name: "Java",
-            icon: "java",
+            name: "JavaScript",
+            icon: "javascript",
+          },
+          {
+            name: "TypeScript",
+            icon: "typescript",
           },
           {
             name: "C++",
@@ -255,13 +242,17 @@ const about: About = {
             name: "Bash",
             icon: "bash",
           },
+          {
+            name: "Go",
+            icon: "go",
+          },
         ],
         images: [],
       },
       {
-        title: "Web & APIs",
+        title: "Web Development",
         description: (
-          <>Node.js, Spring Boot, React, GraphQL, WebSocket, gRPC, and AJAX.</>
+          <>Node.js, Spring Boot, React, GraphQL, HTML, CSS, and Next.js.</>
         ),
         tags: [
           {
@@ -269,62 +260,53 @@ const about: About = {
             icon: "nodejs",
           },
           {
-            name: "React",
-            icon: "react",
+            name: "Spring Boot",
+            icon: "springboot",
           },
           {
-            name: "Next.js",
-            icon: "nextjs",
+            name: "React",
+            icon: "react",
           },
           {
             name: "GraphQL",
             icon: "graphql",
           },
           {
-            name: "Spring Boot",
-            icon: "springboot",
+            name: "HTML",
+            icon: "html5",
+          },
+          {
+            name: "CSS",
+            icon: "css3",
+          },
+          {
+            name: "Next.js",
+            icon: "nextjs",
           },
         ],
         images: [],
       },
       {
-        title: "AI Tools & Frameworks",
+        title: "Databases & Messaging",
         description: (
-          <>Claude Code, RAG, AI Agents, Vector Databases, LangChain, LangGraph, and Gemini.</>
+          <>PostgreSQL, MongoDB, MySQL, Redis, Kafka, and RabbitMQ.</>
         ),
         tags: [
           {
-            name: "Claude Code",
-            icon: "anthropic",
-          },
-          {
-            name: "LangChain",
-            icon: "langchain",
-          },
-          {
-            name: "LangGraph",
-            icon: "langchain",
-          },
-          {
-            name: "Gemini",
-            icon: "gemini",
-          },
-          {
-            name: "pgvector",
+            name: "PostgreSQL",
             icon: "postgresql",
           },
-        ],
-        images: [],
-      },
-      {
-        title: "Data & Messaging",
-        description: (
-          <>PostgreSQL, MongoDB, Redis, Kafka, RabbitMQ, MySQL, Oracle DB, Elasticsearch, and Supabase.</>
-        ),
-        tags: [
           {
-            name: "Supabase",
-            icon: "supabase",
+            name: "MongoDB",
+            icon: "mongodb",
+          },
+          {
+            name: "MySQL",
+            icon: "mysql",
+          },
+          {
+            name: "Redis",
+            icon: "redis",
           },
           {
             name: "Kafka",
@@ -334,26 +316,6 @@ const about: About = {
             name: "RabbitMQ",
             icon: "rabbitmq",
           },
-          {
-            name: "MongoDB",
-            icon: "mongodb",
-          },
-          {
-            name: "Redis",
-            icon: "redis",
-          },
-          {
-            name: "PostgreSQL",
-            icon: "postgresql",
-          },
-          {
-            name: "MySQL",
-            icon: "mysql",
-          },
-          {
-            name: "Elasticsearch",
-            icon: "elasticsearch",
-          },
         ],
         images: [],
       },
@@ -361,7 +323,7 @@ const about: About = {
         title: "Cloud & DevOps",
         description: (
           <>
-            AWS, GCP, Azure, Docker, Kubernetes, Terraform, Packer, Jenkins, GitHub Actions, Linux, and Git.
+            AWS, Linux, Git, Docker, Kubernetes, Terraform, GitHub Actions, Jenkins, and Vercel.
           </>
         ),
         tags: [
@@ -370,8 +332,12 @@ const about: About = {
             icon: "aws",
           },
           {
-            name: "GCP",
-            icon: "gcp",
+            name: "Linux",
+            icon: "linux",
+          },
+          {
+            name: "Git",
+            icon: "git",
           },
           {
             name: "Docker",
@@ -386,20 +352,33 @@ const about: About = {
             icon: "terraform",
           },
           {
-            name: "Jenkins",
-            icon: "jenkins",
-          },
-          {
             name: "GitHub Actions",
             icon: "githubActions",
           },
           {
-            name: "Linux",
-            icon: "linux",
+            name: "Jenkins",
+            icon: "jenkins",
           },
           {
-            name: "Git",
-            icon: "git",
+            name: "Vercel",
+            icon: "vercel",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "AI Tools & Frameworks",
+        description: (
+          <>RAG, Agentic AI, Vector Databases, LangChain, and LangGraph.</>
+        ),
+        tags: [
+          {
+            name: "LangChain",
+            icon: "langchain",
+          },
+          {
+            name: "LangGraph",
+            icon: "langchain",
           },
         ],
         images: [],

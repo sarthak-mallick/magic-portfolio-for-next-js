@@ -28,8 +28,10 @@ import {
   SiApachetomcat,
   SiApachespark,
   SiCplusplus,
+  SiCss3,
   SiDocker,
   SiElasticsearch,
+  SiHtml5,
   SiJavascript,
   SiGithubactions,
   SiGit,
@@ -61,6 +63,7 @@ import {
   SiLangchain,
   SiGooglegemini,
   SiAnthropic,
+  SiVercel,
 } from "react-icons/si";
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaInstagram, FaXTwitter, FaFacebook, FaPinterest, FaWhatsapp, FaReddit, FaTelegram, } from "react-icons/fa6";
@@ -126,6 +129,9 @@ export const iconLibrary: Record<string, IconType> = {
   gemini: SiGooglegemini,
   anthropic: SiAnthropic,
   figma: SiFigma,
+  html5: SiHtml5,
+  css3: SiCss3,
+  vercel: SiVercel,
   facebook: FaFacebook,
   pinterest: FaPinterest,
   whatsapp: FaWhatsapp,
